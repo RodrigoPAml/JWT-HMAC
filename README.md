@@ -26,8 +26,10 @@ The core concept is that HMAC generates a unique hash value from the data and th
    - If you use a different key or alter the content, the resulting hash will not match the original, indicating tampering.
    - If the appropriate hash function is used, this process can't be brute-forced
 
-#### Example Workflow
+#### Example from Program.cs
 ```csharp
+Console.WriteLine($"JWT TEST");
+
 string key = PrivateKeyProvider.GenerateRandomKey(32); // 256 bit key
 string content = "Your content here";
 string signed = HmacProvider.ComputeHash(key, content, HashAlgorithmName.SHA256);
@@ -77,6 +79,8 @@ The tokens parts are in the following order:
 **4. Verify the JWT:** To validate the token, the method ```JwtProvider.ValidateToken(token, key)``` is called. It re-computes the signature using the same key and checks if it matches the original signature in the token. If it does, the token is valid. If not, the token might have been tampered with or the wrong key was used.
 
 ### Testing
+
+Example from Program.cs
 
 ```C#
 Console.WriteLine($"JWT TEST");
