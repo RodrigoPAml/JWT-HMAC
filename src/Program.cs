@@ -14,11 +14,12 @@ class Program
         string signed = HmacProvider.ComputeHash(key, content, HashAlgorithmName.SHA256);
 
         Console.WriteLine($"Key: {key}");
+        Console.WriteLine($"Content: {content}");
         Console.WriteLine($"Hash: {signed}");
 
-        Console.WriteLine($"Check if signed ? {HmacProvider.ComputeHash(key, content, HashAlgorithmName.SHA256) == signed}");
-        Console.WriteLine($"Check if signed with wrong key ? {HmacProvider.ComputeHash(key + "1", content, HashAlgorithmName.SHA256) == signed}");
-        Console.WriteLine($"Check if signed with diferent payload ? {HmacProvider.ComputeHash(key, content + "1", HashAlgorithmName.SHA256) == signed}");
+        Console.WriteLine($"Check if match ? {HmacProvider.ComputeHash(key, content, HashAlgorithmName.SHA256) == signed}");
+        Console.WriteLine($"Check if match with wrong key ? {HmacProvider.ComputeHash(key + "1", content, HashAlgorithmName.SHA256) == signed}");
+        Console.WriteLine($"Check if match with diferent payload ? {HmacProvider.ComputeHash(key, content + "1", HashAlgorithmName.SHA256) == signed}");
     }
 
     static void JwtTest()
