@@ -24,7 +24,7 @@ The core concept is that HMAC generates a unique hash value from the data and th
 3. **Verify the Hash:**
    - You can check if the content is authentic by re-computing the hash using the same key and content. If the recomputed hash matches the original one, the message is valid and hasn't been altered.
    - If you use a different key or alter the content, the resulting hash will not match the original, indicating tampering.
-   - If using the apropriate hash function this processes can't be brute forced
+   - If the appropriate hash function is used, this process can't be brute-forced
 
 #### Example Workflow
 ```csharp
