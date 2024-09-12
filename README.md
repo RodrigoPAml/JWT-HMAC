@@ -74,7 +74,7 @@ The tokens parts are in the following order:
 
 **2. Generate a Key:** A random key is generated to sign the JWT. This key will be used in conjunction with HMAC to create the signature for the JWT.
 
-**3. Create the JWT:** The method ```JwtProvider.CreateToken(key, payload)``` creates a JWT token by encoding the header + "." + payload and signing it using the HMAC algorithm (using SHA-256 in this case). The token is composed of the encoded header + "." + payload + "." + signature.
+**3. Create the JWT:** The method ```JwtProvider.CreateToken(key, payload)``` creates a JWT token by encoding the header + "." + payload and signing it using the HMAC algorithm (using SHA-256 in this case). The final token is composed of the encoded header + "." + payload + "." + signature.
 
 **4. Verify the JWT:** To validate the token, the method ```JwtProvider.ValidateToken(token, key)``` is called. It re-computes the signature using the same key and checks if it matches the original signature in the token. If it does, the token is valid. If not, the token might have been tampered with or the wrong key was used.
 
